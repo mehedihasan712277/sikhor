@@ -1,0 +1,47 @@
+-----------required collection----------------
+userDB
+categoryDB
+productDB
+
+-------------document structure of the above collections------------------
+userDB
+[
+	{
+		name : "",
+		email : "",
+		cart : [
+			{
+				product_id : ""
+				date : ""
+			},
+		]
+	},
+	
+]
+
+categoryDB
+[
+	{
+		name : "",
+		subcategory : [
+			name : "",
+			subcategory : [
+				{name: ""}
+			]
+		]
+	},
+	
+]
+productDB
+[
+	name : "",
+	description : "",
+	imageLink : "",
+	regularPrice :  number type data,
+	discount : number type data %,
+	reducedPrice : number type data,
+	category: "category subcategory subcategory"
+	launchDate : ,
+]
+
+you have full liberty to desing as your willing, this is just a demo
