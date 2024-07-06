@@ -1,1 +1,1 @@
-## This is website for affiliate marketing. The website is under contruction
+## This is a website for affiliate marketing. The website is under contruction
