@@ -6,26 +6,22 @@ carousel.post("/new", async (req, res) => {
   try {
     const body = req.body;
 
-    const newCarousel = await prisma.carousel.create({
+    const newImgUrl = await prisma.carousel.create({
       data: body,
     });
 
-    res.send(newCarousel);
+    res.send(newImgUrl);
   } catch (error) {
     console.log(error);
     res.status(500).send({ error: "Internal server error!" });
   }
 });
 
-carousel.get("/:id", async (req, res) => {
+carousel.get("/", async (req, res) => {
   try {
-    const { id } = req.params;
+    const imgUrls = await prisma.carousel.findMany();
 
-    const carousel = await prisma.carousel.findFirst({
-      where: { id },
-    });
-
-    res.send(carousel);
+    res.send(imgUrls);
   } catch (error) {
     console.log(error);
     res.status(500).send({ error: "Internal server error!" });
@@ -37,27 +33,27 @@ carousel.patch("/update/:id", async (req, res) => {
     const { id } = req.params;
     const body = req.body;
 
-    const updatedCarousel = await prisma.carousel.update({
+    const updatedImgUrl = await prisma.carousel.update({
       where: { id },
       data: body,
     });
 
-    res.send(updatedCarousel);
+    res.send(updatedImgUrl);
   } catch (error) {
     console.log(error);
     res.status(500).send({ error: "Internal server error!" });
   }
 });
 
-carousel.delete("/:id", async (req, res) => {
+carousel.delete("/delete/:id", async (req, res) => {
   try {
     const { id } = req.params;
 
-    const deletedCarousel = await prisma.carousel.delete({
+    const deletedImgUrl = await prisma.carousel.delete({
       where: { id },
     });
 
-    res.send(deletedCarousel);
+    res.send(deletedImgUrl);
   } catch (error) {
     console.log(error);
     res.status(500).send({ error: "Internal server error!" });

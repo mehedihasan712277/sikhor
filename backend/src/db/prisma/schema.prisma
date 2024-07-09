@@ -62,6 +62,7 @@ model Product {
 // ui
 
 model Carousel {
-  id      String   @id @default(auto()) @map("_id") @db.ObjectId
-  imgUrls String[]
+  id     String @id @default(auto()) @map("_id") @db.ObjectId
+  imgUrl String
+  alt    String
 }
