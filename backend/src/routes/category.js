@@ -21,10 +21,13 @@ category
         where: {
           id: categoryId,
         },
-        include: {
+        select: {
+          id: true,
+          name: true,
           subCategories: {
-            include: {
-              subSubCategories: true,
+            select: {
+              id: true,
+              name: true,
             },
           },
         },
