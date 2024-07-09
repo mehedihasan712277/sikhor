@@ -12,9 +12,7 @@ user.post("/new", async (req, res) => {
 
     if (existingUser) {
       // If user already exists, throw an error
-      return res
-        .status(400)
-        .json({ error: "User with this email already exists" });
+      res.status(400).send({ error: "User with this email already exists" });
     }
 
     const newUser = await prisma.user.create({
@@ -32,6 +30,23 @@ user.get("/all", async (req, res) => {
   try {
     const users = await prisma.user.findMany();
     res.send(users);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("Internal server error");
+  }
+});
+
+user.patch("/update/:id", async (req, res) => {
+  try {
+    const userId = req.params.id;
+    const body = req.body;
+
+    const updatedUser = await prisma.user.update({
+      where: { id: userId },
+      data: { ...body },
+    });
+
+    res.send(updatedUser);
   } catch (error) {
     console.log(error);
     res.status(500).send("Internal server error");
