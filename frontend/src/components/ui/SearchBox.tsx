@@ -1,5 +1,4 @@
 "use client"
-// import * as React from 'react';
 import Paper from '@mui/material/Paper';
 import InputBase from '@mui/material/InputBase';
 import IconButton from '@mui/material/IconButton';
@@ -9,14 +8,12 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import no_match from "@/assets/no_match.png"
 import { Button } from '@mui/material';
-// import { useRouter } from 'next/navigation';
 
 
 
 
 const SearchBox = () => {
-    // const router = useRouter();
-    // const [isMounted, setIsMounted] = useState(false);
+
     const [value, setValue] = useState("");
     const [data, setData] = useState<ProductDataType[]>([]);
 
@@ -24,47 +21,22 @@ const SearchBox = () => {
         fetch("https://jsonplaceholder.typicode.com/posts")
             .then(res => res.json())
             .then(res => setData(res))
-
     }, []);
 
     const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setValue(e.target.value);
+        setValue(e.target.value.trim());
     }
+    // console.log(value);
+    // console.log(Array.from(new Set(value.split(" ").flatMap(e => data.filter(ele => ele.title.includes(e))))));
 
-    // if (value.length) {
-    //     router.push('/search')
-    // }
-    // else {
-    //     router.push('/');
-    // }
 
-    const highlightText = (text: string, highlight: string) => {
-        const parts = text.split(new RegExp(`(${highlight})`, 'gi'));
-        return (
-            <span>
-                {parts.map((part, index) =>
-                    part.toLowerCase() === highlight.toLowerCase() ?
-                        <span key={index} style={{ backgroundColor: "rgb(255, 255, 128)" }}>{part}</span> :
-                        part
-                )}
-            </span>
-        );
+    const highlightText = (text: string, highlights: string[]) => {
+        const regex = new RegExp(`(${highlights.join('|')})`, 'gi');
+        const parts = text.split(regex);
+        return <>{parts.map((part, i) =>
+            highlights.some(highlight => part.toLowerCase() === highlight.toLowerCase()) ? <span key={i} className="bg-yellow-300">{part}</span> : part
+        )}</>;
     }
-
-
-
-    // const handleFocus = () => {
-    //     if (isMounted) {
-
-    //     }
-    // };
-
-    // const handleBlur = () => {
-    //     if (isMounted) {
-    //         router.push('/');
-    //     }
-    // };
-
 
     return (
         <div className='relative'>
@@ -74,11 +46,9 @@ const SearchBox = () => {
             >
                 <InputBase
                     sx={{ ml: 1, flex: 1 }}
-                    placeholder="Search Google Maps"
-                    inputProps={{ 'aria-label': 'search google maps' }}
+                    placeholder="search product by name"
+                    inputProps={{ 'aria-label': 'search product by name' }}
                     onChange={handleSearch}
-                // onFocus={handleFocus}
-                // onBlur={handleBlur}
                 />
                 <IconButton type="button" sx={{ p: '10px' }} aria-label="search">
                     <SearchIcon />
@@ -87,20 +57,27 @@ const SearchBox = () => {
 
 
 
-            <div className={value.length ? 'fixed top-[100px] left-0 right-0 overflow-y-auto bg-white' : 'hidden'} style={{ height: 'calc(100vh - 100px)' }}>
+            <div className={Boolean(value) ? 'fixed top-[100px] left-0 right-0 overflow-y-auto bg-white' : 'hidden'} style={{ height: 'calc(100vh - 100px)' }}>
                 {value && (
-                    data.filter(ele => ele.title.includes(value)).length ? (
-                        <div className='p-8 grid grid-cols-4 gap-8 '>
-                            {data.filter(ele => ele.title.includes(value))
-                                .map(ele => (
-                                    <div key={ele.id} className="bg-slate-100 p-4">
-                                        <p>{ele.id}</p>
-                                        <p className='font-bold'>
-                                            {highlightText(ele.title, value)}
-                                        </p>
-                                        <p>{ele.body}</p>
-                                    </div>
-                                ))}
+                    Array.from(new Set(value.split(" ").flatMap(e => data.filter(ele => ele.title.includes(e))))).length ? (
+                        <div>
+                            <p className='text-xl font-bold text-gray-700 pt-4 pl-8'>
+                                Totoal Search Results: {Array.from(new Set(value.split(" ").flatMap(e => data.filter(ele => ele.title.includes(e))))).length}
+                            </p>
+                            <div className='p-8 grid grid-cols-4 gap-8 '>
+                                {
+                                    Array.from(new Set(value.split(" ").flatMap(e => data.filter(ele => ele.title.includes(e)))))
+                                        .map(ele => (
+                                            <div key={ele.id} className="bg-slate-100 p-4">
+                                                <p>{ele.id}</p>
+                                                <p className='font-bold'>
+                                                    {/* {ele.title} */}
+                                                    {highlightText(ele.title, value.split(" "))}
+                                                </p>
+                                                <p>{ele.body}</p>
+                                            </div>
+                                        ))}
+                            </div>
                         </div>
                     ) : (
                         <div className='flex flex-col justify-center items-center gap-4' style={{ height: 'calc(100vh - 100px)' }}>
