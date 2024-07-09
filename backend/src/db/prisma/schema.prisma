@@ -39,6 +39,7 @@ model SubCategory {
 
 model SubSubCategory {
   id            String      @id @default(auto()) @map("_id") @db.ObjectId
+  name          String
   subCategoryId String      @db.ObjectId
   subCategory   SubCategory @relation(fields: [subCategoryId], references: [id])
   products      Product[]
@@ -47,14 +48,13 @@ model SubSubCategory {
 model Product {
   id               String         @id @default(auto()) @map("_id") @db.ObjectId
   name             String
-  categoryId       String         @db.ObjectId
-  category         SubSubCategory @relation(fields: [subSubCategoryId], references: [id])
+  subSubCategoryId String         @db.ObjectId
+  subSubCategory   SubSubCategory @relation(fields: [subSubCategoryId], references: [id])
   description      String?
   imageUrls        String[]
   regularPrice     Float
   discount         Float?
   reducedPrice     Float?
   launchedAt       DateTime       @default(now())
-  subSubCategoryId String         @db.ObjectId
   cart             CartItem[]
 }
