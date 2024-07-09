@@ -57,7 +57,7 @@ const SearchBox = () => {
 
 
 
-            <div className={Boolean(value) ? 'fixed top-[100px] left-0 right-0 overflow-y-auto bg-white' : 'hidden'} style={{ height: 'calc(100vh - 100px)' }}>
+            <div className={Boolean(value) ? 'fixed top-[100px] z-10 left-0 right-0 overflow-y-auto bg-white' : 'hidden'} style={{ height: 'calc(100vh - 100px)' }}>
                 {value && (
                     Array.from(new Set(value.split(" ").flatMap(e => data.filter(ele => ele.title.includes(e))))).length ? (
                         <div>
