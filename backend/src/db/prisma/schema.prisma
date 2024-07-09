@@ -39,7 +39,7 @@ model SubCategory {
 
 model SubSubCategory {
   id            String      @id @default(auto()) @map("_id") @db.ObjectId
-  name          String
+  name          String      @unique
   subCategoryId String      @db.ObjectId
   subCategory   SubCategory @relation(fields: [subCategoryId], references: [id])
   products      Product[]
@@ -57,4 +57,11 @@ model Product {
   reducedPrice     Float?
   launchedAt       DateTime       @default(now())
   cart             CartItem[]
+}
+
+// ui
+
+model Carousel {
+  id      String   @id @default(auto()) @map("_id") @db.ObjectId
+  imgUrls String[]
 }

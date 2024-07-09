@@ -44,6 +44,16 @@ category.post("/new", async (req, res) => {
   try {
     const body = req.body;
 
+    const existingCategory = await prisma.category.findUnique({
+      where: { name: body.name },
+    });
+
+    if (existingCategory) {
+      return res
+        .status(400)
+        .json({ error: "A category with this name already exists!" });
+    }
+
     const newCategory = await prisma.category.create({
       data: body,
     });
@@ -54,5 +64,24 @@ category.post("/new", async (req, res) => {
     res.status(500).send("Internal server error");
   }
 });
+
+category.patch("/update/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const body = req.body;
+
+    const updatedCategory = await prisma.category.update({
+      where: { id },
+      data: body,
+    });
+
+    res.send(updatedCategory);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("Internal server error");
+  }
+});
+
+// category.delete("/delete/:id", as)
 
 module.exports = category;

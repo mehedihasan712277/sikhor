@@ -21,8 +21,16 @@ subCategory
         where: {
           id,
         },
-        include: {
-          subSubCategories: true,
+        select: {
+          id: true,
+          name: true,
+          categoryId: true,
+          subSubCategories: {
+            select: {
+              id: true,
+              name: true,
+            },
+          },
         },
       });
 
@@ -37,29 +45,60 @@ subCategory.post("/new", async (req, res) => {
   try {
     const body = req.body;
 
+    if (!body.categoryId) {
+      return res.status(400).json({ error: "categoryId is missing!" });
+    }
+
+    const existingSubcategory = await prisma.subCategory.findUnique({
+      where: { name: body.name },
+    });
+
+    if (existingSubcategory) {
+      return res
+        .status(400)
+        .json({ error: "Sub-category with this name already exits!" });
+    }
+
     const newSubCategory = await prisma.subCategory.create({
       data: body,
     });
 
-    res.send(newSubCategory);
+    return res.send(newSubCategory);
   } catch (error) {
     console.log(error);
     res.status(500).send("Internal server error");
   }
 });
 
-subCategory.delete("/:id", async (req, res) => {
+subCategory.patch("/update/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    const deletedSubCategory = await prisma.subCategory.delete({
+    const body = req.body;
+
+    const updatedSubCategory = await prisma.subCategory.update({
       where: { id },
+      data: body,
     });
 
-    res.send(deletedSubCategory);
+    res.send(updatedSubCategory);
   } catch (error) {
     console.log(error);
     res.status(500).send("Internal server error");
   }
 });
+
+// subCategory.delete("/:id", async (req, res) => {
+//   try {
+//     const { id } = req.params;
+//     const deletedSubCategory = await prisma.subCategory.delete({
+//       where: { id },
+//     });
+
+//     res.send(deletedSubCategory);
+//   } catch (error) {
+//     console.log(error);
+//     res.status(500).send("Internal server error");
+//   }
+// });
 
 module.exports = subCategory;

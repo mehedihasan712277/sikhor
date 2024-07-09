@@ -7,7 +7,7 @@ product
     try {
       const products = await prisma.product.findMany({
         include: {
-          category: true,
+          subSubCategory: true,
         },
       });
 
@@ -57,6 +57,10 @@ product
 product.post("/new", async (req, res) => {
   try {
     const body = req.body;
+
+    if (!body.subSubCategoryId) {
+      return res.status(400).json({ error: "Sub-subcategoryId is missing!" });
+    }
 
     const newProduct = await prisma.product.create({
       data: body,
