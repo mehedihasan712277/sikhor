@@ -29,8 +29,8 @@ const NavBar = () => {
             </div>
             <div className="flex justify-center gap-4 text-white bg-black py-4">
                 <Link href="/">Home</Link>
-                <Link href="/">Home</Link>
-                <Link href="/">Home</Link>
+                <Link href="/men">Men</Link>
+                <Link href="/women">Women</Link>
                 <Link href="/">Home</Link>
             </div>
         </main>

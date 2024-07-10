@@ -1,0 +1,41 @@
+[
+    {
+        "name" : "men",
+        "subcategory" : [
+            {
+                "name": "upper-body",
+                "subcategory" : ["T-shirt", "polo-shirt"]
+            },
+            {
+                "name": "upper-body",
+                "subcategory" : ["Pant", "Shoe"]
+            }
+        ]
+    },
+    {
+        "name" : "women",
+        "subcategory" : [
+            {
+                "name": "upper-body",
+                "subcategory" : ["Kamiz", "Frok"]
+            },
+            {
+                "name": "upper-body",
+                "subcategory" : null
+            }
+        ]
+    },
+    {
+        "name" : "Children",
+        "subcategory" : [
+            {
+                "name": "upper-body",
+                "subcategory" : null
+            }
+        ]
+    },
+    {
+        "name" : "Old",
+        "subcategory": null
+    }
+]

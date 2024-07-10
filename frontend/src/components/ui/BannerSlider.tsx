@@ -15,13 +15,22 @@ import { Autoplay, EffectFade, Navigation, Pagination } from 'swiper/modules';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { BannerImageType } from '@/utils/types';
+import { useQuery } from '@tanstack/react-query';
+
+const fetchData = (): Promise<BannerImageType[]> => {
+    return axios.get("https://sikhor-server0.vercel.app/carousel").then(res => res.data)
+}
 
 const BannerSlider = () => {
-    const [data, setData] = useState<BannerImageType[] | []>([])
-    useEffect(() => {
-        axios.get("https://sikhor-server0.vercel.app/carousel")
-            .then(res => setData(res.data))
-    }, [])
+    const { data, isLoading } = useQuery({ queryKey: ["slider-image"], queryFn: fetchData })
+    // const [data, setData] = useState<BannerImageType[] | []>([])
+    // useEffect(() => {
+    //     axios.get("https://sikhor-server0.vercel.app/carousel")
+    //         .then(res => setData(res.data))
+    // }, [])
+    if (isLoading) {
+        return <>Loading</>
+    }
     return (
         <>
             <Swiper
@@ -39,7 +48,7 @@ const BannerSlider = () => {
                 className="mySwiper w-full h-full"
             >
                 {
-                    data.map(ele => <SwiperSlide key={ele.id} style={{ backgroundPosition: "center", backgroundSize: "cover" }} className='h-[500px]'>
+                    (data as BannerImageType[]).map(ele => <SwiperSlide key={ele.id} style={{ backgroundPosition: "center", backgroundSize: "cover" }} className='h-[500px]'>
                         <img src={ele.imgUrl} alt={ele.alt} className='block w-full h-[450px]' />
                     </SwiperSlide>)
                 }
