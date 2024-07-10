@@ -5,7 +5,11 @@ const prisma = require("../db/prisma-client");
 category
   .get("/all", async (req, res) => {
     try {
-      const categories = await prisma.category.findMany();
+      const categories = await prisma.category.findMany({
+        include: {
+          products: true,
+        }
+      });
 
       res.send(categories);
     } catch (error) {
