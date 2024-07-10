@@ -4,3 +4,9 @@ export type ProductDataType = {
     title: string
     body: string
 }
+
+export type BannerImageType = {
+    id: string
+    imgUrl: string
+    alt: string
+}
