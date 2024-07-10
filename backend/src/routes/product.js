@@ -6,36 +6,8 @@ product
   .get("/all", async (req, res) => {
     try {
       const products = await prisma.product.findMany({
-        select: {
-          id: true,
-          name: true,
-          category: true,
-          subCategory: {
-            select: {
-              id: true,
-              name: true,
-              category: true,
-            },
-          },
-          subSubCategory: {
-            select: {
-              id: true,
-              name: true,
-              subCategory: {
-                select: {
-                  id: true,
-                  name: true,
-                  category: true,
-                },
-              },
-            },
-          },
-          regularPrice: true,
-          discount: true,
-          reducedPrice: true,
-          description: true,
-          launchedAt: true,
-          imageUrls: true,
+        orderBy: {
+          launchedAt: "desc",
         },
       });
 
@@ -50,33 +22,30 @@ product
       const { id } = req.params;
       const product = await prisma.product.findFirst({
         where: { id },
-        select: {
-          id: true,
-          name: true,
-          regularPrice: true,
-          discount: true,
-          reducedPrice: true,
-          description: true,
-          imageUrls: true,
-          launchedAt: true,
-          category: true,
-          subSubCategory: {
-            select: {
-              id: true,
-              name: true,
-              subCategory: {
-                select: {
-                  id: true,
-                  name: true,
-                  category: true,
-                },
-              },
-            },
-          },
-        },
       });
 
       res.send(product);
+    } catch (error) {
+      console.log(error);
+      res.status(500).send("Internal server error");
+    }
+  })
+  .get("/category/:categoryName", async (req, res) => {
+    try {
+      const { categoryName } = req.params;
+
+      const products = await prisma.product.findMany({
+        where: {
+          category: {
+            has: categoryName,
+          },
+        },
+        orderBy: {
+          launchedAt: "desc",
+        },
+      });
+
+      res.send(products);
     } catch (error) {
       console.log(error);
       res.status(500).send("Internal server error");
@@ -86,10 +55,6 @@ product
 product.post("/new", async (req, res) => {
   try {
     const body = req.body;
-
-    // if (!body.subSubCategoryId) {
-    //   return res.status(400).json({ error: "Sub-subcategoryId is missing!" });
-    // }
 
     const newProduct = await prisma.product.create({
       data: body,

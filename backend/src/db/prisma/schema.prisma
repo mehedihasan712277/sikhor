@@ -27,42 +27,25 @@ model Category {
   id            String        @id @default(auto()) @map("_id") @db.ObjectId
   name          String        @unique
   subCategories SubCategory[]
-  products      Product[]
 }
 
-model SubCategory {
-  id               String           @id @default(auto()) @map("_id") @db.ObjectId
-  name             String           @unique
-  categoryId       String           @db.ObjectId
-  category         Category         @relation(fields: [categoryId], references: [id])
-  subSubCategories SubSubCategory[]
-  products         Product[]
-}
-
-model SubSubCategory {
-  id            String      @id @default(auto()) @map("_id") @db.ObjectId
-  name          String      @unique
-  subCategoryId String      @db.ObjectId
-  subCategory   SubCategory @relation(fields: [subCategoryId], references: [id])
-  products      Product[]
+type SubCategory {
+  name             String
+  subSubCategories String[]
 }
 
 model Product {
-  id               String          @id @default(auto()) @map("_id") @db.ObjectId
-  name             String
-  description      String?
-  imageUrls        String[]
-  regularPrice     Float
-  discount         Float?
-  reducedPrice     Float?
-  launchedAt       DateTime        @default(now())
-  cart             CartItem[]
-  categoryId       String?         @db.ObjectId
-  category         Category?       @relation(fields: [categoryId], references: [id])
-  subCategoryId    String?         @db.ObjectId
-  subCategory      SubCategory?    @relation(fields: [subCategoryId], references: [id])
-  subSubCategoryId String?         @db.ObjectId
-  subSubCategory   SubSubCategory? @relation(fields: [subSubCategoryId], references: [id])
+  id           String     @id @default(auto()) @map("_id") @db.ObjectId
+  name         String
+  description  String
+  imageUrl     String
+  regularPrice Float
+  discount     Float?
+  reducedPrice Float?
+  category     String[]
+  launchedAt   DateTime   @default(now())
+  rating       Float?
+  cart         CartItem[]
 }
 
 // ui

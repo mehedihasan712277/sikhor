@@ -6,9 +6,11 @@ category
   .get("/all", async (req, res) => {
     try {
       const categories = await prisma.category.findMany({
-        include: {
-          products: true,
-        }
+        select: {
+          id: true,
+          name: true,
+          subCategories: true,
+        },
       });
 
       res.send(categories);
@@ -28,12 +30,7 @@ category
         select: {
           id: true,
           name: true,
-          subCategories: {
-            select: {
-              id: true,
-              name: true,
-            },
-          },
+          subCategories: true,
         },
       });
 
