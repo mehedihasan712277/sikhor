@@ -29,34 +29,23 @@ model Category {
   subCategories SubCategory[]
 }
 
-model SubCategory {
-  id               String           @id @default(auto()) @map("_id") @db.ObjectId
-  name             String           @unique
-  categoryId       String           @db.ObjectId
-  category         Category         @relation(fields: [categoryId], references: [id])
-  subSubCategories SubSubCategory[]
-}
-
-model SubSubCategory {
-  id            String      @id @default(auto()) @map("_id") @db.ObjectId
-  name          String      @unique
-  subCategoryId String      @db.ObjectId
-  subCategory   SubCategory @relation(fields: [subCategoryId], references: [id])
-  products      Product[]
+type SubCategory {
+  name             String
+  subSubCategories String[]
 }
 
 model Product {
-  id               String         @id @default(auto()) @map("_id") @db.ObjectId
-  name             String
-  subSubCategoryId String         @db.ObjectId
-  subSubCategory   SubSubCategory @relation(fields: [subSubCategoryId], references: [id])
-  description      String?
-  imageUrls        String[]
-  regularPrice     Float
-  discount         Float?
-  reducedPrice     Float?
-  launchedAt       DateTime       @default(now())
-  cart             CartItem[]
+  id           String     @id @default(auto()) @map("_id") @db.ObjectId
+  name         String
+  description  String
+  imageUrl     String
+  regularPrice Float
+  discount     Float?
+  reducedPrice Float?
+  category     String[]
+  launchedAt   DateTime   @default(now())
+  rating       Float?
+  cart         CartItem[]
 }
 
 // ui
