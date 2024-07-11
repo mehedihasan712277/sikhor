@@ -20,11 +20,15 @@ const fetchData = (): Promise<BannerImageType[]> => {
 
 const BannerSlider = () => {
     const { data, isLoading } = useQuery({ queryKey: ["slider-image"], queryFn: fetchData })
+
+    // -----------loadig spinner--------------
     if (isLoading) {
         return <Box sx={{ display: 'flex', justifyContent: "center", alignItems: "center", height: "450px" }}>
             <CircularProgress />
         </Box>
     }
+
+
     return (
         <>
             <Swiper

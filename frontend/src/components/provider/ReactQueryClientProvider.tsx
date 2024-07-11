@@ -8,7 +8,7 @@ import {
 const queryClient = new QueryClient({
     defaultOptions: {
         queries: {
-            staleTime: 5000
+            staleTime: 10000
         },
     },
 })
