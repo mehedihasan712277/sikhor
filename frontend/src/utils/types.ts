@@ -1,8 +1,14 @@
 export type ProductDataType = {
-    id: number
-    userId: number
-    title: string
-    body: string
+    id: string
+    name: string
+    description: string
+    imgUrl: string
+    regularPrice: number
+    discount: number
+    reducedPrice: number
+    category: string[]
+    launchedAt: string
+    rating: number
 }
 
 export type BannerImageType = {

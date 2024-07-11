@@ -1,0 +1,90 @@
+[
+  {
+    "name": "Men's T-shirt",
+    "description": "A stylish and comfortable upper-body wear for men, perfect for casual outings.",
+    "imgUrl": "https://i.ibb.co/pXnFtpQ/tshirt1.jpg",
+    "regularPrice": 999,
+    "discount": 10,
+    "reducedPrice": 899,
+    "category": ["Men", "Upper-body", "T-shirt"],
+    "launchedAt": "2024-07-10",
+    "rating": 4.8
+  },
+  {
+    "name": "Women's Blouse",
+    "description": "An elegant upper-body wear for women, suitable for both casual and formal occasions.",
+    "imgUrl": "https://i.ibb.co/wNzL0y0/tshirt4.jpg",
+    "regularPrice": 199,
+    "discount": 15,
+    "reducedPrice": 169,
+    "category": ["Women", "Upper-body"],
+    "launchedAt": "2024-07-10",
+    "rating": 4.5
+  },
+  {
+    "name": "Children's T-shirt",
+    "description": "A vibrant and comfortable t-shirt designed for children.",
+    "imgUrl": "https://i.ibb.co/ky0Q53d/tshirt3.jpg",
+    "regularPrice": 799,
+    "discount": 20,
+    "reducedPrice": 639,
+    "category": ["Children"],
+    "launchedAt": "2024-07-10",
+    "rating": 4.7
+  },
+  {
+    "name": "Women's Frock",
+    "description": "A beautiful and stylish frock for women, perfect for any occasion.",
+    "imgUrl": "https://i.ibb.co/VJQtynv/tshirt2.jpg",
+    "regularPrice": 1499,
+    "discount": 25,
+    "reducedPrice": 1124,
+    "category": ["Women", "Upper-body", "Frock"],
+    "launchedAt": "2024-07-10",
+    "rating": 4.9
+  },
+  {
+    "name": "Men's T-shirt",
+    "description": "A stylish and comfortable upper-body wear for men, perfect for casual outings.",
+    "imgUrl": "https://i.ibb.co/Lg8FP7Y/poloshirt4.jpg",
+    "regularPrice": 999,
+    "discount": 10,
+    "reducedPrice": 899,
+    "category": ["Men", "Upper-body", "T-shirt"],
+    "launchedAt": "2024-07-10",
+    "rating": 4.8
+  },
+  {
+    "name": "Women's Blouse",
+    "description": "An elegant upper-body wear for women, suitable for both casual and formal occasions.",
+    "imgUrl": "https://i.ibb.co/0sMp9Pc/poloshirt3.jpg",
+    "regularPrice": 199,
+    "discount": 15,
+    "reducedPrice": 169,
+    "category": ["Women", "Upper-body"],
+    "launchedAt": "2024-07-10",
+    "rating": 4.5
+  },
+  {
+    "name": "Children's T-shirt",
+    "description": "A vibrant and comfortable t-shirt designed for children.",
+    "imgUrl": "https://i.ibb.co/r4MHfvG/poloshirt2.jpg",
+    "regularPrice": 799,
+    "discount": 20,
+    "reducedPrice": 639,
+    "category": ["Children"],
+    "launchedAt": "2024-07-10",
+    "rating": 4.7
+  },
+  {
+    "name": "Women's Frock",
+    "description": "A beautiful and stylish frock for women, perfect for any occasion.",
+    "imgUrl": "https://i.ibb.co/RT811pt/poloshirt1.jpg",
+    "regularPrice": 1499,
+    "discount": 25,
+    "reducedPrice": 1124,
+    "category": ["Women", "Upper-body", "Frock"],
+    "launchedAt": "2024-07-10",
+    "rating": 4.9
+  }
+]

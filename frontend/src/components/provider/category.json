@@ -1,41 +1,32 @@
 [
     {
-        "name" : "men",
+        "name" : "Men",
         "subcategory" : [
             {
-                "name": "upper-body",
-                "subcategory" : ["T-shirt", "polo-shirt"]
+                "name": "Upper-body",
+                "subcategory" : ["T-shirt", "Polo-shirt", "Panjabi", "Jersey"]
             },
             {
-                "name": "upper-body",
-                "subcategory" : ["Pant", "Shoe"]
+                "name": "Lower-body",
+                "subcategory" : ["Pant", "Shoe", "Sock"]
             }
         ]
     },
     {
-        "name" : "women",
+        "name" : "Women",
         "subcategory" : [
             {
-                "name": "upper-body",
+                "name": "Upper-body",
                 "subcategory" : ["Kamiz", "Frok"]
             },
             {
-                "name": "upper-body",
+                "name": "Lower-body",
                 "subcategory" : null
             }
         ]
     },
     {
         "name" : "Children",
-        "subcategory" : [
-            {
-                "name": "upper-body",
-                "subcategory" : null
-            }
-        ]
-    },
-    {
-        "name" : "Old",
-        "subcategory": null
+        "subcategory" : null
     }
 ]
