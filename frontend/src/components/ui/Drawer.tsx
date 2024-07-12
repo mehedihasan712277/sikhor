@@ -7,7 +7,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import { useState } from 'react';
-import { Accordion, AccordionDetails, AccordionSummary, IconButton } from '@mui/material';
+import { Accordion, AccordionDetails, AccordionSummary, Button, IconButton } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useQuery } from '@tanstack/react-query';
 import { fetchAllCategory } from '@/utils/getAllCategory';
@@ -58,7 +58,7 @@ const MenuDrawer = () => {
                                             ?
                                             <p >{ele.name}</p>
                                             :
-                                            <Link href={`/category/${ele.name}`}>
+                                            <Link href={`/category/${ele.name}`} className='w-full'>
                                                 <p onClick={toggleDrawer(false)} className='w-full'>{ele.name}</p>
                                             </Link>
                                     }
@@ -88,7 +88,7 @@ const MenuDrawer = () => {
                                                                         ?
                                                                         <p>{e.name}</p>
                                                                         :
-                                                                        <Link href={`/category/${e.name}`}>
+                                                                        <Link href={`/category/${e.name}`} className='w-full'>
                                                                             <ListItemButton onClick={toggleDrawer(false)}>
                                                                                 <ListItemText primary={e.name} />
                                                                             </ListItemButton>
@@ -146,13 +146,10 @@ const MenuDrawer = () => {
             <IconButton
                 color="inherit"
                 aria-label="open drawer"
-                // edge="start"
                 onClick={toggleDrawer(true)}
-            // sx={{ mr: 2, display: { sm: 'none' } }}
             >
                 <MenuIcon />
             </IconButton>
-            {/* <Button onClick={toggleDrawer(true)}>Open drawer</Button> */}
             <Drawer open={open} onClose={toggleDrawer(false)}>
                 {DrawerList}
             </Drawer>
