@@ -13,6 +13,7 @@ import { useQuery } from '@tanstack/react-query';
 import { fetchAllCategory } from '@/utils/getAllCategory';
 import QueryError from './QueryError';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import Link from 'next/link';
 
 
 
@@ -39,27 +40,14 @@ const MenuDrawer = () => {
     };
 
 
-
-
-
     const DrawerList = (
         <Box sx={{ width: "80vw" }} role="presentation">
-            {/* <List>
-                {data?.map((ele) => (
-                    <ListItem key={ele.id} disablePadding>
-                        <ListItemButton>
-                            <ListItemText primary={ele.name} onClick={toggleDrawer(false)} />
-                        </ListItemButton>
-                    </ListItem>
-                ))}
-            </List> */}
             <div>
                 {
                     data?.map(ele => {
                         return (
-                            // onClick={toggleDrawer(Boolean(ele.subCategories?.length))}
                             // ---------------------------parent accoedion----------------------------------------
-                            <Accordion disableGutters sx={{ boxShadow: "none" }}>
+                            <Accordion disableGutters sx={{ boxShadow: "none" }} key={ele.id}>
                                 <AccordionSummary
                                     expandIcon={ele.subCategories?.length ? <ExpandMoreIcon /> : null}
                                     aria-controls="panel1-content"
@@ -70,7 +58,9 @@ const MenuDrawer = () => {
                                             ?
                                             <p >{ele.name}</p>
                                             :
-                                            <p onClick={toggleDrawer(false)} className='w-full'>{ele.name}</p>
+                                            <Link href={`/category/${ele.name}`}>
+                                                <p onClick={toggleDrawer(false)} className='w-full'>{ele.name}</p>
+                                            </Link>
                                     }
                                 </AccordionSummary>
                                 {
@@ -98,9 +88,11 @@ const MenuDrawer = () => {
                                                                         ?
                                                                         <p>{e.name}</p>
                                                                         :
-                                                                        <ListItemButton onClick={toggleDrawer(false)}>
-                                                                            <ListItemText primary={e.name} />
-                                                                        </ListItemButton>
+                                                                        <Link href={`/category/${e.name}`}>
+                                                                            <ListItemButton onClick={toggleDrawer(false)}>
+                                                                                <ListItemText primary={e.name} />
+                                                                            </ListItemButton>
+                                                                        </Link>
                                                                 }
                                                             </AccordionSummary>
                                                             {
@@ -110,9 +102,11 @@ const MenuDrawer = () => {
                                                                         {
                                                                             e.subSubCategories.map((element, index) => {
                                                                                 return <div key={index}>
-                                                                                    <ListItemButton onClick={toggleDrawer(false)}>
-                                                                                        <ListItemText primary={element} />
-                                                                                    </ListItemButton>
+                                                                                    <Link href={`/category/${element}`}>
+                                                                                        <ListItemButton onClick={toggleDrawer(false)}>
+                                                                                            <ListItemText primary={element} />
+                                                                                        </ListItemButton>
+                                                                                    </Link>
                                                                                 </div>
                                                                             })
 
@@ -136,7 +130,7 @@ const MenuDrawer = () => {
             </div>
             <Divider />
             <List>
-                {['All mail', 'Trash', 'Spam'].map((text, index) => (
+                {['All mail', 'Trash', 'Spam'].map((text) => (
                     <ListItem key={text} disablePadding>
                         <ListItemButton>
                             <ListItemText primary={text} />
