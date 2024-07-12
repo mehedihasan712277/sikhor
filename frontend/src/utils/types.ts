@@ -22,6 +22,6 @@ export type CategoryType = {
     name: string
     subCategories?: {
         name: string
-        subCategories?: string[]
+        subSubCategories?: string[]
     }[]
 }

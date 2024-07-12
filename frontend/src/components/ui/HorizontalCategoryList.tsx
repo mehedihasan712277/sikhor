@@ -13,7 +13,7 @@ const HorizontalCategoryList = () => {
     }
 
     if (error) {
-        return <QueryError err={error.message}></QueryError>
+        return <QueryError err={error.message} cls='hidden'></QueryError>
     }
     return (
         <div className='bg-black py-4 text-white'>

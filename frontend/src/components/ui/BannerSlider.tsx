@@ -15,10 +15,6 @@ import { Box, CircularProgress } from '@mui/material';
 import { fetchData } from '@/utils/getSliderData';
 import QueryError from './QueryError';
 
-// const fetchData = (): Promise<BannerImageType[]> => {
-//     return axios.get("https://sikhor-server0.vercel.app/carousel").then(res => res.data)
-// }
-
 const BannerSlider = () => {
     const { data, isLoading, error } = useQuery({ queryKey: ["slider-image"], queryFn: fetchData })
 
@@ -29,7 +25,7 @@ const BannerSlider = () => {
         </Box>
     }
     if (error) {
-        return <QueryError err={error.message}></QueryError>
+        return <QueryError err={error.message} cls='block' msg='cannot load conent '></QueryError>
     }
 
 

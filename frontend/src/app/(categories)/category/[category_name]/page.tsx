@@ -5,3 +5,5 @@ const page = (props: { params: { category_name: string } }) => {
 }
 
 export default page
+
+
