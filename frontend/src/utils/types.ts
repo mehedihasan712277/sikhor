@@ -16,3 +16,12 @@ export type BannerImageType = {
     imgUrl: string
     alt: string
 }
+
+export type CategoryType = {
+    id: string
+    name: string
+    subCategories?: {
+        name: string
+        subCategories?: string[]
+    }[]
+}

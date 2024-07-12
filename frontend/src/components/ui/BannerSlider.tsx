@@ -9,23 +9,27 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 import { Autoplay, EffectFade, Navigation, Pagination } from 'swiper/modules';
-import axios from 'axios';
 import { BannerImageType } from '@/utils/types';
 import { useQuery } from '@tanstack/react-query';
 import { Box, CircularProgress } from '@mui/material';
+import { fetchData } from '@/utils/getSliderData';
+import QueryError from './QueryError';
 
-const fetchData = (): Promise<BannerImageType[]> => {
-    return axios.get("https://sikhor-server0.vercel.app/carousel").then(res => res.data)
-}
+// const fetchData = (): Promise<BannerImageType[]> => {
+//     return axios.get("https://sikhor-server0.vercel.app/carousel").then(res => res.data)
+// }
 
 const BannerSlider = () => {
-    const { data, isLoading } = useQuery({ queryKey: ["slider-image"], queryFn: fetchData })
+    const { data, isLoading, error } = useQuery({ queryKey: ["slider-image"], queryFn: fetchData })
 
     // -----------loadig spinner--------------
     if (isLoading) {
         return <Box sx={{ display: 'flex', justifyContent: "center", alignItems: "center", height: "450px" }}>
             <CircularProgress />
         </Box>
+    }
+    if (error) {
+        return <QueryError err={error.message}></QueryError>
     }
 
 
