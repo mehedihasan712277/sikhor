@@ -52,20 +52,35 @@ product
     }
   });
 
-product.post("/new", async (req, res) => {
-  try {
-    const body = req.body;
+product
+  .post("/new", async (req, res) => {
+    try {
+      const body = req.body;
 
-    const newProduct = await prisma.product.create({
-      data: body,
-    });
+      const newProduct = await prisma.product.create({
+        data: body,
+      });
 
-    res.send(newProduct);
-  } catch (error) {
-    console.log(error);
-    res.status(500).send("Internal server error");
-  }
-});
+      res.send(newProduct);
+    } catch (error) {
+      console.log(error);
+      res.status(500).send("Internal server error");
+    }
+  })
+  .post("/new/many", async (req, res) => {
+    try {
+      const body = req.body;
+
+      const newProducts = await prisma.product.createMany({
+        data: body,
+      });
+
+      res.send(newProducts);
+    } catch (error) {
+      console.log(error);
+      res.status(500).send("Internal server error");
+    }
+  });
 
 product.delete("/delete/:id", async (req, res) => {
   try {
