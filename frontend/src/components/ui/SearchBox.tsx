@@ -10,11 +10,13 @@ import Image from 'next/image';
 import no_match from "@/assets/no_match.png"
 import { Button } from '@mui/material';
 import Link from 'next/link';
+// import { useQuery } from '@tanstack/react-query';
 
 const SearchBox = () => {
     const [value, setValue] = useState<string>("");
     const [data, setData] = useState<ProductDataType[]>([]);
 
+    // const { data, isLoading, error } = useQuery()
     useEffect(() => {
         fetch("https://sikhor-server0.vercel.app/product/all")
             .then(res => res.json())
@@ -53,7 +55,7 @@ const SearchBox = () => {
 
 
 
-            <div className={Boolean(value) ? 'fixed top-[124px] md:top-[100px] z-10 left-0 right-0 overflow-y-auto bg-white' : 'hidden'} style={{ height: 'calc(100vh - 100px)' }}>
+            <div className={Boolean(value) ? 'fixed top-[124px] md:top-[92px] z-10 left-0 right-0 overflow-y-auto bg-white' : 'hidden'} style={{ height: 'calc(100vh - 100px)' }}>
                 {value && (
                     Array.from(new Set(value.split(" ").flatMap(e => data.filter(ele => ele.name.toLowerCase().includes(e.toLowerCase()))))).length ? (
                         <div>

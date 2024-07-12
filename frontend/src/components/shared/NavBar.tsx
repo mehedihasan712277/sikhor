@@ -5,6 +5,9 @@ import Link from "next/link"
 import { Badge, Stack } from "@mui/material"
 import { AccountCircle, ShoppingCart } from "@mui/icons-material"
 import MenuDrawer from "../ui/Drawer"
+import HorizontalCategoryList from "../ui/HorizontalCategoryList"
+
+
 const NavBar = () => {
     return (
         <main>
@@ -37,12 +40,7 @@ const NavBar = () => {
                 </div>
 
                 {/* ----------links-------------- */}
-                <div className="flex justify-center gap-4 text-white bg-black py-4">
-                    <Link href="/">Home</Link>
-                    <Link href="/men">Men</Link>
-                    <Link href="/women">Women</Link>
-                    <Link href="/children">Children</Link>
-                </div>
+                <HorizontalCategoryList></HorizontalCategoryList>
 
             </div>
 
