@@ -10,19 +10,21 @@ import Image from 'next/image';
 import no_match from "@/assets/no_match.png"
 import { Button } from '@mui/material';
 import Link from 'next/link';
-// import { useQuery } from '@tanstack/react-query';
+import { useQuery } from '@tanstack/react-query';
+import { fetchProducts } from '@/utils/getAllProducts';
 
 const SearchBox = () => {
     const [value, setValue] = useState<string>("");
-    const [data, setData] = useState<ProductDataType[]>([]);
 
-    // const { data, isLoading, error } = useQuery()
-    useEffect(() => {
-        fetch("https://sikhor-server0.vercel.app/product/all")
-            .then(res => res.json())
-            .then(res => setData(res))
-    }, []);
+    const { data, isLoading, error } = useQuery({ queryKey: ["all-product"], queryFn: fetchProducts })
 
+
+    if (isLoading) {
+        return <p>loading...........</p>
+    }
+    if (error) {
+        return <p>{error.message}</p>
+    }
     const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
         setValue(e.target.value.trim());
     }
@@ -57,22 +59,22 @@ const SearchBox = () => {
 
             <div className={Boolean(value) ? 'fixed top-[124px] md:top-[92px] z-10 left-0 right-0 overflow-y-auto bg-white' : 'hidden'} style={{ height: 'calc(100vh - 100px)' }}>
                 {value && (
-                    Array.from(new Set(value.split(" ").flatMap(e => data.filter(ele => ele.name.toLowerCase().includes(e.toLowerCase()))))).length ? (
+                    Array.from(new Set(value.split(" ").flatMap(e => data?.filter(ele => ele.name.toLowerCase().includes(e.toLowerCase()))))).length ? (
                         <div>
                             <p className='text-xl font-bold text-gray-700 pt-4 pl-8'>
-                                Total Search Results: {Array.from(new Set(value.split(" ").flatMap(e => data.filter(ele => ele.name.toLowerCase().includes(e.toLowerCase()))))).length}
+                                Total Search Results: {Array.from(new Set(value.split(" ").flatMap(e => data?.filter(ele => ele.name.toLowerCase().includes(e.toLowerCase()))))).length}
                             </p>
                             <div className='p-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 '>
                                 {
-                                    Array.from(new Set(value.split(" ").flatMap(e => data.filter(ele => ele.name.toLowerCase().includes(e.toLowerCase())))))
-                                        .map(ele => (
-                                            <div key={ele.id} className="bg-slate-100 p-4">
+                                    Array.from(new Set(value.split(" ").flatMap(e => data?.filter(ele => ele.name.toLowerCase().includes(e.toLowerCase())))))
+                                        .map((ele) => (
+                                            <div key={ele?.id} className="bg-slate-100 p-4">
                                                 <Link href="/men">
                                                     <p className='font-bold' onClick={() => setValue("")}>
-                                                        {/* {ele.title} */}
-                                                        {highlightText(ele.name, value.split(" "))}
+                                                        {/* {ele?.title} */}
+                                                        {highlightText((ele as ProductDataType).name, value.split(" "))}
                                                     </p>
-                                                    <p>{ele.description}</p>
+                                                    <p>{ele?.description}</p>
                                                 </Link>
                                             </div>
                                         ))}
