@@ -8,7 +8,7 @@ const page = async () => {
   const res = await fetch("https://sikhor-server0.vercel.app/product/all")
   const products = await res.json();
   return (
-    <div>
+    <div className="bg-[#e9e9e9]">
       <NavBar></NavBar>
       <BannerSlider></BannerSlider>
       <ProductSlider category="Men" allData={products}></ProductSlider>
