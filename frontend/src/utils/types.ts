@@ -25,3 +25,8 @@ export type CategoryType = {
         subSubCategories?: string[]
     }[]
 }
+
+export type ProductSliderDataType = {
+    category: string
+    allData: ProductDataType[]
+}
