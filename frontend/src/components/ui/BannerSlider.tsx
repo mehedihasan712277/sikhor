@@ -48,14 +48,11 @@ const BannerSlider = () => {
 
                 {
                     (data as BannerImageType[]).map(ele => {
+                        return <SwiperSlide key={ele.id} style={{ backgroundPosition: "center", backgroundSize: "cover" }} className='h-[500px]'>
+                            <img src={ele.imgUrl} alt={ele.alt} className='block w-full h-[450px]' />
+                        </SwiperSlide>
 
-                        return <>
 
-                            <SwiperSlide key={ele.id} style={{ backgroundPosition: "center", backgroundSize: "cover" }} className='h-[500px]'>
-                                <img src={ele.imgUrl} alt={ele.alt} className='block w-full h-[450px]' />
-                            </SwiperSlide>
-
-                        </>
                     })
                 }
 
