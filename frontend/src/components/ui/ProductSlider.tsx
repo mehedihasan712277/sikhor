@@ -4,7 +4,7 @@ const ProductSlider = ({ category, allData }: ProductSliderDataType) => {
     return (
         <div>
             <p>{category}</p>
-            <div className="grid grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                 {
                     allData.filter(ele => ele.category.includes(category)).map(e => {
                         return <div key={e.id} className="bg-slate-100 p-4">
