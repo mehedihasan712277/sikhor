@@ -2,7 +2,7 @@ export type ProductDataType = {
     id: string
     name: string
     description: string
-    imgUrl: string
+    imageUrl: string
     regularPrice: number
     discount: number
     reducedPrice: number
@@ -24,6 +24,9 @@ export type CategoryType = {
         name: string
         subSubCategories?: string[]
     }[]
+}
+export type BannerSliderDataType = {
+    allData: BannerImageType[];
 }
 
 export type ProductSliderDataType = {

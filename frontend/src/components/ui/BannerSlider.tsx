@@ -9,26 +9,10 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 import { Autoplay, EffectFade, Navigation, Pagination } from 'swiper/modules';
-import { BannerImageType } from '@/utils/types';
-import { useQuery } from '@tanstack/react-query';
-import { Box, CircularProgress } from '@mui/material';
-import { fetchData } from '@/utils/getSliderData';
-import QueryError from './QueryError';
+import { BannerSliderDataType } from '@/utils/types';
+import Image from 'next/image';
 
-const BannerSlider = () => {
-    const { data, isLoading, error } = useQuery({ queryKey: ["slider-image"], queryFn: fetchData })
-
-    // -----------loadig spinner--------------
-    if (isLoading) {
-        return <Box sx={{ display: 'flex', justifyContent: "center", alignItems: "center", height: "450px" }}>
-            <CircularProgress />
-        </Box>
-    }
-    if (error) {
-        return <QueryError err={error.message} cls='block' msg='cannot load conent '></QueryError>
-    }
-
-
+const BannerSlider = ({ allData }: BannerSliderDataType) => {
     return (
         <>
             <Swiper
@@ -47,9 +31,12 @@ const BannerSlider = () => {
             >
 
                 {
-                    (data as BannerImageType[]).map(ele => {
+                    allData.map(ele => {
                         return <SwiperSlide key={ele.id} style={{ backgroundPosition: "center", backgroundSize: "cover" }} className='h-[500px]'>
-                            <img src={ele.imgUrl} alt={ele.alt} className='block w-full h-[450px]' />
+                            {/* <img src={ele.imgUrl} alt={ele.alt} className='block w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[450px]' /> */}
+                            <div className='w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[450px]'>
+                                <Image src={ele.imgUrl} fill alt='image' placeholder='blur' blurDataURL='LlKBzOWAx]fk_Nj[Rjj[-;WVRPae'></Image>
+                            </div>
                         </SwiperSlide>
 
 
