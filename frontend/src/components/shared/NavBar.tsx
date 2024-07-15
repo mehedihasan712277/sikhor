@@ -48,7 +48,7 @@ const NavBar = () => {
 
 
             {/* ------------------small device----------------- */}
-            <div className="md:hidden px-4 pb-2">
+            <div className="md:hidden px-4 pb-2 bg-white">
                 <div className="flex justify-between items-center">
                     <div className="flex items-center gap-2">
                         <div>

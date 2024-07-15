@@ -16,12 +16,15 @@ const HorizontalCategoryList = () => {
         return <QueryError err={error.message} cls='hidden'></QueryError>
     }
     return (
-        <div className='bg-black py-4 text-white'>
+        <div className='bg-black text-white py-4'>
             <Stack direction={"row"} spacing={3} justifyContent={"center"}>
                 {
-                    data?.map(ele => <Link href={`/category/${ele.name}`} key={ele.id}>
-                        {ele.name}
-                    </Link>)
+                    data?.map(ele => <div key={ele.id}>
+                        <p>
+                            {ele.name}
+                        </p>
+
+                    </div>)
                 }
             </Stack>
         </div>
