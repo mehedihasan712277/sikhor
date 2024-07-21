@@ -55,22 +55,16 @@ const CustomTreeItem = styled(TreeItem)(({ theme }) => ({
 const Sidebar = () => {
     return (
         <div className='fixed top-0 bottom-0 left-0 bg-[#1f2937] w-[300px]'>
-            <Box sx={{ width: "100%" }}>
+            <div className='h-[100px] flex items-center pl-5'>
+                <p className='text-white text-4xl font-bold'>Sikhor</p>
+            </div>
+            <Box sx={{ width: "100%", paddingX: "20px" }}>
                 <SimpleTreeView defaultExpandedItems={['']}>
-                    <CustomTreeItem itemId="grid" label="Data Grid">
-                        <CustomTreeItem itemId="grid-community" label="@mui/x-data-grid" />
-                        <CustomTreeItem itemId="grid-pro" label="@mui/x-data-grid-pro" />
-                        <CustomTreeItem itemId="grid-premium" label="@mui/x-data-grid-premium" />
-                    </CustomTreeItem>
-                    <CustomTreeItem itemId="pickers" label="Date and Time Pickers">
-                        <CustomTreeItem itemId="pickers-community" label="@mui/x-date-pickers" />
-                        <CustomTreeItem itemId="pickers-pro" label="@mui/x-date-pickers-pro" />
-                    </CustomTreeItem>
-                    <CustomTreeItem itemId="charts" label="Charts">
-                        <CustomTreeItem itemId="charts-community" label="@mui/x-charts" />
-                        <CustomTreeItem itemId="tree-view" label="Tree View">
-                            <CustomTreeItem itemId="tree-view-community" label="@mui/x-tree-view" />
-                        </CustomTreeItem>
+                    <CustomTreeItem itemId="Order" label="Order" />
+                    <CustomTreeItem itemId="Products" label="Products">
+                        <CustomTreeItem itemId="All" label="All" />
+                        <CustomTreeItem itemId="Add" label="Add" />
+                        <CustomTreeItem itemId="Category" label="Category" />
                     </CustomTreeItem>
                 </SimpleTreeView>
             </Box>
