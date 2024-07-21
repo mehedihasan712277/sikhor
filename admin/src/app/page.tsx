@@ -3,9 +3,9 @@ import { Add } from "@mui/icons-material"
 const page = () => {
   return (
     <div>
-      <div className="bg-red-200 14i:bg-red-400 15i:bg-red-900">
+      {/* <div className="bg-red-200 14i:bg-red-400 15i:bg-red-900">
         indicator
-      </div>
+      </div> */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 p-4">
         <div className="text-[#697AD2] bg-[#FCFCFC] p-2 xl:p-4 rounded-lg shadow-sm flex gap-2">
           <div className="h-6 w-6 xl:h-8 xl:w-8 bg-[#697AD2] text-white flex justify-center items-center"><Add></Add></div>

@@ -22,8 +22,8 @@ export default function RootLayout({
       <body>
         <div className="relative max-w-[1600px] mx-auto select-none">
           <div className="absolute top-0 bottom-0 left-0 hidden lg:block"><Sidebar></Sidebar></div>
-          <div className="absolute top-0 right-0 left-0 lg:left-[300px]"><Navbar></Navbar></div>
-          <div className="absolute top-[100px] left-0 lg:left-[300px] right-0 bg-[#e9e9e9] overflow-y-auto" style={{ height: "calc(100vh - 100px)" }}>
+          <div className="absolute top-0 right-0 left-0 lg:left-[250px] 14i:left-[300px]"><Navbar></Navbar></div>
+          <div className="absolute top-[100px] left-0 lg:left-[250px] 14i:left-[300px] right-0 bg-[#e9e9e9] overflow-y-auto" style={{ height: "calc(100vh - 100px)" }}>
             {children}
           </div>
         </div>

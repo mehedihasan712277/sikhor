@@ -1,0 +1,112 @@
+[
+    {
+        "id": 1, 
+        "name": "Product 1",
+        "description" : "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati in laudantium totam optio odit, repellat vitae minima aspernatur, placeat eligendi consectetur, repudiandae earum eos sequi rem magni dignissimos facilis atque impedit veritatis? Quas doloribus iusto molestiae expedita sed rerum. Dolorum deserunt voluptas ratione ullam consequuntur expedita pariatur nesciunt eius ad.",
+        "imgUrl" : "../../public/bg2.png",
+        "regularPrice": 100,
+        "discount": 5,
+        "reducedPrice": 95,
+        "rating" : 4.5,
+        "category": ["Men", "Upper-body", "Polo-shirt"]
+    },
+    {
+        "id": 2, 
+        "name": "Product 2",
+        "description" : "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati in laudantium totam optio odit, repellat vitae minima aspernatur, placeat eligendi consectetur, repudiandae earum eos sequi rem magni dignissimos facilis atque impedit veritatis? Quas doloribus iusto molestiae expedita sed rerum. Dolorum deserunt voluptas ratione ullam consequuntur expedita pariatur nesciunt eius ad.",
+        "imgUrl" : "../../public/bg2.png",
+        "regularPrice": 100,
+        "discount": 5,
+        "reducedPrice": 95,
+        "rating" : 4.5,
+        "category": ["Men", "Upper-body", "Polo-shirt"]
+    },
+    {
+        "id": 3, 
+        "name": "Product 3",
+        "description" : "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati in laudantium totam optio odit, repellat vitae minima aspernatur, placeat eligendi consectetur, repudiandae earum eos sequi rem magni dignissimos facilis atque impedit veritatis? Quas doloribus iusto molestiae expedita sed rerum. Dolorum deserunt voluptas ratione ullam consequuntur expedita pariatur nesciunt eius ad.",
+        "imgUrl" : "../../public/bg2.png",
+        "regularPrice": 100,
+        "discount": 5,
+        "reducedPrice": 95,
+        "rating" : 4.5,
+        "category": ["Men", "Upper-body", "Polo-shirt"]
+    },
+    {
+        "id": 4, 
+        "name": "Product 4",
+        "description" : "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati in laudantium totam optio odit, repellat vitae minima aspernatur, placeat eligendi consectetur, repudiandae earum eos sequi rem magni dignissimos facilis atque impedit veritatis? Quas doloribus iusto molestiae expedita sed rerum. Dolorum deserunt voluptas ratione ullam consequuntur expedita pariatur nesciunt eius ad.",
+        "imgUrl" : "../../public/bg2.png",
+        "regularPrice": 100,
+        "discount": 5,
+        "reducedPrice": 95,
+        "rating" : 4.5,
+        "category": ["Men", "Upper-body", "Polo-shirt"]
+    },
+    {
+        "id": 5, 
+        "name": "Product 5",
+        "description" : "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati in laudantium totam optio odit, repellat vitae minima aspernatur, placeat eligendi consectetur, repudiandae earum eos sequi rem magni dignissimos facilis atque impedit veritatis? Quas doloribus iusto molestiae expedita sed rerum. Dolorum deserunt voluptas ratione ullam consequuntur expedita pariatur nesciunt eius ad.",
+        "imgUrl" : "../../public/bg2.png",
+        "regularPrice": 100,
+        "discount": 5,
+        "reducedPrice": 95,
+        "rating" : 4.5,
+        "category": ["Men", "Upper-body", "Polo-shirt"]
+    },
+    {
+        "id": 6, 
+        "name": "Product 6",
+        "description" : "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati in laudantium totam optio odit, repellat vitae minima aspernatur, placeat eligendi consectetur, repudiandae earum eos sequi rem magni dignissimos facilis atque impedit veritatis? Quas doloribus iusto molestiae expedita sed rerum. Dolorum deserunt voluptas ratione ullam consequuntur expedita pariatur nesciunt eius ad.",
+        "imgUrl" : "../../public/bg2.png",
+        "regularPrice": 100,
+        "discount": 5,
+        "reducedPrice": 95,
+        "rating" : 4.5,
+        "category": ["Men", "Upper-body", "Polo-shirt"]
+    },
+    {
+        "id": 7, 
+        "name": "Product 7",
+        "description" : "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati in laudantium totam optio odit, repellat vitae minima aspernatur, placeat eligendi consectetur, repudiandae earum eos sequi rem magni dignissimos facilis atque impedit veritatis? Quas doloribus iusto molestiae expedita sed rerum. Dolorum deserunt voluptas ratione ullam consequuntur expedita pariatur nesciunt eius ad.",
+        "imgUrl" : "../../public/bg2.png",
+        "regularPrice": 100,
+        "discount": 5,
+        "reducedPrice": 95,
+        "rating" : 4.5,
+        "category": ["Men", "Upper-body", "Polo-shirt"]
+    },
+    {
+        "id": 8, 
+        "name": "Product 8",
+        "description" : "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati in laudantium totam optio odit, repellat vitae minima aspernatur, placeat eligendi consectetur, repudiandae earum eos sequi rem magni dignissimos facilis atque impedit veritatis? Quas doloribus iusto molestiae expedita sed rerum. Dolorum deserunt voluptas ratione ullam consequuntur expedita pariatur nesciunt eius ad.",
+        "imgUrl" : "../../public/bg2.png",
+        "regularPrice": 100,
+        "discount": 5,
+        "reducedPrice": 95,
+        "rating" : 4.5,
+        "category": ["Men", "Upper-body", "Polo-shirt"]
+    },
+    {
+        "id": 9, 
+        "name": "Product 9",
+        "description" : "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati in laudantium totam optio odit, repellat vitae minima aspernatur, placeat eligendi consectetur, repudiandae earum eos sequi rem magni dignissimos facilis atque impedit veritatis? Quas doloribus iusto molestiae expedita sed rerum. Dolorum deserunt voluptas ratione ullam consequuntur expedita pariatur nesciunt eius ad.",
+        "imgUrl" : "../../public/bg2.png",
+        "regularPrice": 100,
+        "discount": 5,
+        "reducedPrice": 95,
+        "rating" : 4.5,
+        "category": ["Men", "Upper-body", "Polo-shirt"]
+    },
+    {
+        "id": 10, 
+        "name": "Product 10",
+        "description" : "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati in laudantium totam optio odit, repellat vitae minima aspernatur, placeat eligendi consectetur, repudiandae earum eos sequi rem magni dignissimos facilis atque impedit veritatis? Quas doloribus iusto molestiae expedita sed rerum. Dolorum deserunt voluptas ratione ullam consequuntur expedita pariatur nesciunt eius ad.",
+        "imgUrl" : "../../public/bg2.png",
+        "regularPrice": 100,
+        "discount": 5,
+        "reducedPrice": 95,
+        "rating" : 4.5,
+        "category": ["Men", "Upper-body", "Polo-shirt"]
+    }
+]

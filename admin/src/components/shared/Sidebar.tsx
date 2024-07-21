@@ -55,7 +55,7 @@ const CustomTreeItem = styled(TreeItem)(({ theme }) => ({
 
 const Sidebar = () => {
     return (
-        <div className='bg-[#1f2937] w-[300px] h-screen'>
+        <div className='bg-[#1f2937] w-[250px] 14i:w-[300px] h-screen'>
             <div className='h-[100px] flex items-center pl-5'>
                 <p className='text-white text-4xl font-bold'>Sikhor</p>
             </div>
