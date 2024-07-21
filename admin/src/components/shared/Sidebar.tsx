@@ -49,7 +49,7 @@ const CustomTreeItem = styled(TreeItem)(({ theme }) => ({
         marginLeft: 15,
         paddingLeft: 18,
         // borderLeft: `1px dashed ${alpha(theme.palette.text.primary, 0.1)}`,
-        borderLeft: `1px dashed #94a3b8`,
+        // borderLeft: `1px dashed #94a3b8`,
     },
 }));
 
