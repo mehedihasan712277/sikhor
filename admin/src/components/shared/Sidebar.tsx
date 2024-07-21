@@ -55,12 +55,13 @@ const CustomTreeItem = styled(TreeItem)(({ theme }) => ({
 
 const Sidebar = () => {
     return (
-        <div className='fixed top-0 bottom-0 left-0 bg-[#1f2937] w-[300px]'>
+        <div className='bg-[#1f2937] w-[300px] h-screen'>
             <div className='h-[100px] flex items-center pl-5'>
                 <p className='text-white text-4xl font-bold'>Sikhor</p>
             </div>
             <Box sx={{ width: "100%", paddingX: "20px" }}>
                 <SimpleTreeView defaultExpandedItems={['']}>
+                    <Link href={"/"}><CustomTreeItem itemId="Home" label="Home" /></Link>
                     <Link href={"/orders"}><CustomTreeItem itemId="Order" label="Order" /></Link>
                     <CustomTreeItem itemId="Products" label="Products">
                         <Link href={"/all_products"}><CustomTreeItem itemId="All" label="All" /></Link>
