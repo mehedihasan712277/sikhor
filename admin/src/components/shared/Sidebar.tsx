@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import { styled, alpha } from '@mui/material/styles';
 import { SimpleTreeView } from '@mui/x-tree-view/SimpleTreeView';
 import { TreeItem, treeItemClasses } from '@mui/x-tree-view/TreeItem';
+import Link from 'next/link';
 
 const CustomTreeItem = styled(TreeItem)(({ theme }) => ({
     color:
@@ -60,11 +61,11 @@ const Sidebar = () => {
             </div>
             <Box sx={{ width: "100%", paddingX: "20px" }}>
                 <SimpleTreeView defaultExpandedItems={['']}>
-                    <CustomTreeItem itemId="Order" label="Order" />
+                    <Link href={"/orders"}><CustomTreeItem itemId="Order" label="Order" /></Link>
                     <CustomTreeItem itemId="Products" label="Products">
-                        <CustomTreeItem itemId="All" label="All" />
-                        <CustomTreeItem itemId="Add" label="Add" />
-                        <CustomTreeItem itemId="Category" label="Category" />
+                        <Link href={"/all_products"}><CustomTreeItem itemId="All" label="All" /></Link>
+                        <Link href={"/add_product"}><CustomTreeItem itemId="Add" label="Add" /></Link>
+                        <Link href={"/category"}><CustomTreeItem itemId="Category" label="Category" /></Link>
                     </CustomTreeItem>
                 </SimpleTreeView>
             </Box>
