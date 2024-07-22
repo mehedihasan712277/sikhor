@@ -8,7 +8,7 @@
         "discount": 5,
         "reducedPrice": 95,
         "rating" : 4.5,
-        "category": ["Men", "Upper-body", "Polo-shirt"]
+        "category": ["Men", "Upper-body", "T-shirt"]
     },
     {
         "id": 2, 
@@ -30,7 +30,7 @@
         "discount": 5,
         "reducedPrice": 95,
         "rating" : 4.5,
-        "category": ["Men", "Upper-body", "Polo-shirt"]
+        "category": ["Men", "Lower-body", "Denim-pant"]
     },
     {
         "id": 4, 
@@ -41,7 +41,7 @@
         "discount": 5,
         "reducedPrice": 95,
         "rating" : 4.5,
-        "category": ["Men", "Upper-body", "Polo-shirt"]
+        "category": ["Men", "Lower-body", "Cotton-pant"]
     },
     {
         "id": 5, 
@@ -52,7 +52,7 @@
         "discount": 5,
         "reducedPrice": 95,
         "rating" : 4.5,
-        "category": ["Men", "Upper-body", "Polo-shirt"]
+        "category": ["Women", "Upper-body", "Tops"]
     },
     {
         "id": 6, 
@@ -63,7 +63,7 @@
         "discount": 5,
         "reducedPrice": 95,
         "rating" : 4.5,
-        "category": ["Men", "Upper-body", "Polo-shirt"]
+        "category": ["Women", "Upper-body", "Three-piece"]
     },
     {
         "id": 7, 
@@ -74,7 +74,7 @@
         "discount": 5,
         "reducedPrice": 95,
         "rating" : 4.5,
-        "category": ["Men", "Upper-body", "Polo-shirt"]
+        "category": ["Women", "Lower-body"]
     },
     {
         "id": 8, 
@@ -85,7 +85,7 @@
         "discount": 5,
         "reducedPrice": 95,
         "rating" : 4.5,
-        "category": ["Men", "Upper-body", "Polo-shirt"]
+        "category": ["Children"]
     },
     {
         "id": 9, 
@@ -107,6 +107,6 @@
         "discount": 5,
         "reducedPrice": 95,
         "rating" : 4.5,
-        "category": ["Men", "Upper-body", "Polo-shirt"]
+        "category": ["Men", "Upper-body", "T-shirt"]
     }
 ]

@@ -1,0 +1,30 @@
+[
+    {
+        "name": "Men",
+        "subCategory": [
+            {
+                "name": "Upper-body",
+                "subSubCategory": ["T-shirt", "Polo-shirt"]
+            },
+            {
+                "name": "Lower-body",
+                "subSubCategory": ["Denim-pant", "Cotton-pant"]
+            }
+        ] 
+    },
+    {
+        "name": "Women",
+        "subCategory": [
+            {
+                "name": "Upper-body",
+                "subSubCategory": ["Tops", "Three-piece"]
+            },
+            {
+                "name": "Lower-body"
+            }
+        ] 
+    },
+    {
+        "name": "Children"
+    }
+]
