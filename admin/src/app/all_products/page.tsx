@@ -14,7 +14,6 @@ const AllProductsPage = () => {
     const [subCategory, setSubCategory] = useState("All")
     const [subSubCategory, setSubSubCategory] = useState("All")
 
-
     const reset = () => {
         setMainCategory("All");
         setSubCategory('All');
@@ -104,6 +103,9 @@ const AllProductsPage = () => {
                     data.length === new_data.length || <Button variant="contained" onClick={reset}>reset</Button>
                 }
             </div>
+
+
+
             {/* ------------------------product cards--------------------------- */}
             <div className="grid grid-cols-1 mm:grid-cols-2 mv:grid-cols-3 gap-4 14i:gap-6 w-fit mx-auto py-6 px-4 sm:px-0">
 
