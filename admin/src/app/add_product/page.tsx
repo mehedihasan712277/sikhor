@@ -1,13 +1,12 @@
 "use client"
 import { TextField } from "@mui/material"
-import { FormEvent } from "react"
+import category from "@/assets/category.json"
 
 const AddProductPage = () => {
     const handleSubmit = (e: any) => {
         e.preventDefault();
         const form = e.target;
         const name = form.productName.value;
-        console.log(name)
     }
     return (
         <div className="p-6">
@@ -19,7 +18,8 @@ const AddProductPage = () => {
                     <TextField label="Discount" name="discount" type="number" sx={{ width: "100%" }}></TextField>
                     <TextField label="Reduced Price" name="reducedPrice" type="number" sx={{ width: "100%" }}></TextField>
                 </div>
-
+                <div>
+                </div>
             </form>
         </div>
     )

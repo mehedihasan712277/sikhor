@@ -5,12 +5,14 @@ import Link from "next/link"
 import { useRef } from "react"
 
 const SideBar2 = () => {
-    const list = useRef<HTMLDivElement>(null!);
-    const arrow = useRef<HTMLDivElement>(null!);
+    // const list = useRef<HTMLDivElement>(null!);
+    // const arrow = useRef<HTMLDivElement>(null!);
 
     const showOptions = () => {
-        arrow.current.classList.toggle("rotate-90");
-        list.current.classList.toggle("h-fit");
+        // arrow.current.classList.toggle("rotate-90");
+        // list.current.classList.toggle("h-fit");
+        document.getElementById("list")?.classList.toggle("h-fit")
+        document.getElementById("arrow")?.classList.toggle("rotate-90")
     }
     const data = [
         {
@@ -58,10 +60,12 @@ const SideBar2 = () => {
                                             <span>{ele.icon}</span>
                                             <span>{ele.label}</span>
                                         </div>
-                                        <div className="" ref={arrow}><ArrowRight></ArrowRight></div>
+                                        {/* <div className="" ref={arrow}><ArrowRight></ArrowRight></div> */}
+                                        <div className="" id="arrow"><ArrowRight></ArrowRight></div>
                                     </div>
 
-                                    <div className="h-0 overflow-y-hidden transition-all ease-in-out duration-300" ref={list}>
+                                    {/* <div className="h-0 overflow-y-hidden transition-all ease-in-out duration-300" ref={list}> */}
+                                    <div className="h-0 overflow-y-hidden transition-all ease-in-out duration-300" id="list">
                                         <div className="flex flex-col gap-2 pl-6 py-2 pr-2">
                                             {
                                                 ele.subMenu.map(e => {
